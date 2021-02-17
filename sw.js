@@ -27,29 +27,26 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-87151a10ddfe1cbca4ce.js"
+    "url": "webpack-runtime-532246a3947e0f0e8665.js"
   },
   {
-    "url": "framework-f600a0dcdbbe2ab3be17.js"
+    "url": "framework-95b680cb3190aa9bfe59.js"
   },
   {
     "url": "styles.517ff5f83aa9c14cf3ec.css"
   },
   {
-    "url": "styles-24f8f5af0e19035407c6.js"
+    "url": "styles-24c541b6ac347bae38f1.js"
   },
   {
-    "url": "f0e45107-b3fb87956e69fc692194.js"
+    "url": "f0e45107-1b350d56f045fa1c0ff3.js"
   },
   {
-    "url": "252f366e-0039c2269e1877ca8100.js"
-  },
-  {
-    "url": "app-e0a05dc41e89b92da844.js"
+    "url": "app-2e07ef043f2bb6a3fe17.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "cc1e19c712f43e29b47cbe6782ab2960"
+    "revision": "4bb8abfd67585c7c40656fdb08e156a4"
   },
   {
     "url": "fetch.umd.js"
@@ -69,11 +66,11 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "8aba72a9f4f7aa783a4498748c10d965"
+    "revision": "8764930b22542ea9e4871c46c58126d0"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "a75dd43c947eca372d5c85a3d2ba80e5"
+    "revision": "2ecd11abf31a0cbee68192f8de78d34e"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
@@ -161,12 +158,12 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   lastNavigationRequest = event.request.url
 
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/bias-mitigation`), ``)
+  pathname = pathname.replace(new RegExp(`^/pets`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/bias-mitigation/app-e0a05dc41e89b92da844.js`))) {
+  if (!resources || !(await caches.match(`/pets/app-2e07ef043f2bb6a3fe17.js`))) {
     return await fetch(event.request)
   }
 
@@ -179,7 +176,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/bias-mitigation/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/pets/offline-plugin-app-shell-fallback/index.html`
   const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })
