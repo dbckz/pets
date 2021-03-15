@@ -174,7 +174,7 @@ export default function RepositoryTable() {
   )
 
   return (
-    <div>
+    <div style={{ overflow: "scroll" }}>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (

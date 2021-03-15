@@ -122,9 +122,9 @@ export default function GlobalStyle() {
         }
 
         table {
+          table-layout: fixed;
           border-collapse: collapse;
           border-spacing: 0;
-          width: 100%;
           margin-bottom: 16px;
           color: #444;
         }
